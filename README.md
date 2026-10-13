@@ -8,8 +8,8 @@ InternHub is engineered with **pure semantic HTML5, modern CSS3, and vanilla Jav
 
 ## 1. Live Preview
 
-- **Live Demo (GitHub Pages Placeholder):** [https://asraansari.github.io/responsive-internship-board/](https://asraansari.github.io/responsive-internship-board/)
-- **Live Preview URL:** [https://ais-dev-cmza5agdkf5oxkopmoknsp-430729710002.asia-southeast1.run.app](https://ais-dev-cmza5agdkf5oxkopmoknsp-430729710002.asia-southeast1.run.app)
+- **Live Demo (GitHub Pages Placeholder):** [https://tariksk786.github.io/InternHub/](https://tariksk786.github.io/InternHub/)
+- **Live Preview URL:** (https://tariksk786.github.io/InternHub/)
 
 ---
 
