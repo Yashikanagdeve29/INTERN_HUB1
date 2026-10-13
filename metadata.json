@@ -1,0 +1,6 @@
+{
+  "name": "InternHub — Discover Your Next Opportunity",
+  "description": "A responsive internship listing website with real-time search, domain filtering, detailed modal views, saved bookmarks, and accessible UI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

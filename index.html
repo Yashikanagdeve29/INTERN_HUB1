@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InternHub — Discover Your Next Opportunity</title>
+    <meta name="description" content="A responsive internship listing website with real-time search, domain filtering, detailed modal views, saved bookmarks, and accessible UI." />
+    <meta property="og:title" content="InternHub — Discover Your Next Opportunity" />
+    <meta property="og:description" content="A responsive internship listing website with real-time search, domain filtering, detailed modal views, saved bookmarks, and accessible UI." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Pure CSS3 Stylesheet -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- 1. Accessible Skip to Main Content Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- 2. Demo Disclaimer Top Banner -->
+    <aside class="top-banner" aria-label="Educational demo platform notice">
+      <span class="top-banner-badge">Demo Edition</span>
+      <span>Curated educational sample listings for students &amp; early-career talent. Not affiliated with listed companies.</span>
+    </aside>
+
+    <!-- 3. Header & Navigation -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <!-- Brand Logo -->
+        <a href="#home" class="brand-link" aria-label="InternHub Homepage">
+          <div class="brand-icon-wrapper" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <div class="brand-name">Intern<span>Hub</span></div>
+            <div class="brand-tagline">Discover Your Next Opportunity</div>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="desktop-nav" aria-label="Main Navigation">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#explore-internships" class="nav-link">Explore Internships</a>
+          <a href="#about" class="nav-link">About</a>
+        </nav>
+
+        <!-- Header Actions: Saved Counter, Theme Toggle, Mobile Menu -->
+        <div class="header-actions">
+          <!-- Saved Bookmarks Filter Button -->
+          <button
+            type="button"
+            id="btn-saved-counter"
+            class="btn-saved-counter"
+            aria-label="Filter bookmarked internships"
+            title="View saved internships"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+              <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Saved</span>
+            <span class="saved-count-badge" aria-label="0 saved listings">0</span>
+          </button>
+
+          <!-- Light / Dark Theme Toggle Button -->
+          <button
+            type="button"
+            id="theme-toggle-btn"
+            class="btn-icon"
+            aria-label="Toggle dark mode theme"
+            title="Toggle theme"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </button>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            class="btn-hamburger"
+            aria-expanded="false"
+            aria-controls="mobile-nav-drawer"
+            aria-label="Open navigation menu"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <nav id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation Menu">
+        <a href="#home" class="mobile-nav-link active">Home</a>
+        <a href="#explore-internships" class="mobile-nav-link">Explore Internships</a>
+        <a href="#about" class="mobile-nav-link">About InternHub</a>
+        <button type="button" id="btn-saved-mobile" class="mobile-nav-link" style="width: 100%; border: none; background: none; text-align: left;">
+          <span>Bookmarked Opportunities</span>
+          <span class="saved-count-badge">0</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- 4. Hero Section -->
+    <section id="home" class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-accent-shape-1" aria-hidden="true"></div>
+      <div class="hero-accent-shape-2" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <div class="hero-pill-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>Kickstart Your Professional Journey in Tech</span>
+        </div>
+
+        <!-- Strict Master Prompt Heading -->
+        <h1 id="hero-heading" class="hero-title">
+          Find Your <span class="gradient-text">Dream Internship.</span>
+        </h1>
+
+        <!-- Strict Master Prompt Subtitle -->
+        <p class="hero-subtitle">
+          Explore opportunities, build your skills, and start your career journey.
+        </p>
+
+        <!-- Search Input with Semantic Search Form -->
+        <form id="hero-search-form" class="hero-search-form" role="search" aria-label="Search internships">
+          <div class="search-input-group">
+            <label for="search-input" class="sr-only">Search by job title, company, or technical skill</label>
+            <div class="search-icon-leading" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="search-input"
+              class="search-input"
+              placeholder="Search by title, company, or skill (e.g. Python, Figma, Cloud)..."
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button
+              type="button"
+              id="btn-clear-search"
+              class="btn-clear-search"
+              aria-label="Clear search input"
+              title="Clear search"
+            >
+              &times;
+            </button>
+          </div>
+          <button type="submit" class="btn-search">
+            <span>Search Internships</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Quick Domain Tags -->
+        <div class="quick-tags" aria-label="Popular search shortcuts">
+          <span class="quick-tags-label">Popular Searches:</span>
+          <button type="button" class="quick-tag-btn" data-domain="Web Development">Web Dev</button>
+          <button type="button" class="quick-tag-btn" data-domain="Artificial Intelligence">Generative AI</button>
+          <button type="button" class="quick-tag-btn" data-domain="Data Science">Data Science</button>
+          <button type="button" class="quick-tag-btn" data-domain="UI/UX Design">UI/UX Design</button>
+          <button type="button" class="quick-tag-btn" data-domain="Cybersecurity">Cybersecurity</button>
+          <button type="button" class="quick-tag-btn" data-domain="Cloud Computing">Cloud</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Main Content: Filter Toolbar & Internship Listings -->
+    <main id="main-content" class="main-content">
+      <div class="container">
+        <!-- Accessible ARIA Live Region for Screen Reader Announcements -->
+        <div id="results-live-region" class="sr-only" aria-live="polite" aria-atomic="true">
+          Showing 16 internships.
+        </div>
+
+        <!-- Filter Controls Toolbar -->
+        <section id="explore-internships" class="filter-toolbar" aria-labelledby="filter-heading">
+          <h2 id="filter-heading" class="sr-only">Filter and Search Internships</h2>
+
+          <!-- Results Summary Header -->
+          <div class="filter-toolbar-header">
+            <div class="results-count-container">
+              <span id="results-count" class="results-count">Showing 16 internships</span>
+              <span id="active-filters-summary" class="active-filters-summary">of 16 total opportunities</span>
+            </div>
+            <div class="toolbar-header-actions">
+              <button type="button" id="btn-reset-filters" class="btn-reset-filters" aria-label="Reset all search filters">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true">
+                  <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                  <path d="M21 3v5h-5"></path>
+                  <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+                  <path d="M3 21v-5h5"></path>
+                </svg>
+                <span>Reset Filters</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Multi-Factor Filter Controls Grid -->
+          <div class="filter-controls-grid">
+            <!-- 1. Mandatory Domain Filter Dropdown -->
+            <div class="control-field">
+              <label for="domain-filter" class="control-label">
+                <span>Domain / Field</span>
+              </label>
+              <select id="domain-filter" class="control-select">
+                <option value="all">All Domains</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+              </select>
+            </div>
+
+            <!-- 2. Work Mode Filter -->
+            <div class="control-field">
+              <label for="workmode-filter" class="control-label">
+                <span>Work Mode</span>
+              </label>
+              <select id="workmode-filter" class="control-select">
+                <option value="all">All Work Modes</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="On-site">On-site</option>
+              </select>
+            </div>
+
+            <!-- 3. Sort Order Filter -->
+            <div class="control-field">
+              <label for="sort-filter" class="control-label">
+                <span>Sort Opportunities</span>
+              </label>
+              <select id="sort-filter" class="control-select">
+                <option value="newest">Newest Posted</option>
+                <option value="stipend-high">Highest Stipend</option>
+                <option value="duration-short">Shortest Duration</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Demo & Developer Verification Helper Ribbon -->
+          <div class="demo-test-ribbon">
+            <span>✨ Live filter system: Combines domain, mode, keywords, and bookmarks simultaneously.</span>
+            <button
+              type="button"
+              id="btn-simulate-error"
+              class="btn-test-error"
+              title="Test error state handling and recovery"
+            >
+              Test Error State
+            </button>
+          </div>
+        </section>
+
+        <!-- Internship Listings Container -->
+        <section aria-labelledby="listings-heading">
+          <h2 id="listings-heading" class="sr-only">Available Internship Opportunities</h2>
+
+          <!-- Initial Loading State Skeleton -->
+          <div id="loading-state" class="internships-grid" aria-hidden="true">
+            <div class="skeleton-card">
+              <div class="skeleton-shimmer" style="height: 2.5rem; width: 60%;"></div>
+              <div class="skeleton-shimmer" style="height: 1.5rem; width: 85%;"></div>
+              <div class="skeleton-shimmer" style="height: 1rem; width: 50%;"></div>
+              <div class="skeleton-shimmer" style="height: 4rem; width: 100%;"></div>
+              <div class="skeleton-shimmer" style="height: 2rem; width: 75%; margin-top: auto;"></div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-shimmer" style="height: 2.5rem; width: 60%;"></div>
+              <div class="skeleton-shimmer" style="height: 1.5rem; width: 85%;"></div>
+              <div class="skeleton-shimmer" style="height: 1rem; width: 50%;"></div>
+              <div class="skeleton-shimmer" style="height: 4rem; width: 100%;"></div>
+              <div class="skeleton-shimmer" style="height: 2rem; width: 75%; margin-top: auto;"></div>
+            </div>
+            <div class="skeleton-card">
+              <div class="skeleton-shimmer" style="height: 2.5rem; width: 60%;"></div>
+              <div class="skeleton-shimmer" style="height: 1.5rem; width: 85%;"></div>
+              <div class="skeleton-shimmer" style="height: 1rem; width: 50%;"></div>
+              <div class="skeleton-shimmer" style="height: 4rem; width: 100%;"></div>
+              <div class="skeleton-shimmer" style="height: 2rem; width: 75%; margin-top: auto;"></div>
+            </div>
+          </div>
+
+          <!-- Empty State Box (Mandatory Requirement) -->
+          <div id="empty-state" class="state-box" style="display: none;">
+            <div class="state-icon-circle state-icon-empty" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+            <h3 class="state-title">No internships found</h3>
+            <p class="state-message">No internships found. Try another keyword or domain.</p>
+            <button type="button" id="btn-reset-empty" class="btn-state-action">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+                <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                <path d="M21 3v5h-5"></path>
+              </svg>
+              <span>Reset Filters</span>
+            </button>
+          </div>
+
+          <!-- Error State Box (Mandatory Requirement) -->
+          <div id="error-state" class="state-box" style="display: none;">
+            <div class="state-icon-circle state-icon-error" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="32" height="32">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h3 class="state-title">Unable to Load Listings</h3>
+            <p class="state-message">Something went wrong while loading internships.</p>
+            <button type="button" id="btn-retry-error" class="btn-state-action">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+                <path d="M23 4v6h-6"></path>
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+              </svg>
+              <span>Try Again</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Cards Container (Rendered dynamically using vanilla DOM APIs) -->
+          <div id="internships-container" class="internships-grid"></div>
+        </section>
+      </div>
+    </main>
+
+    <!-- 6. About Section -->
+    <section id="about" class="about-section" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading" class="hero-title" style="font-size: 2rem; text-align: center; margin-bottom: 2.5rem;">
+          Why Students Choose <span class="gradient-text">InternHub</span>
+        </h2>
+        <div class="about-grid">
+          <div class="about-feature-card">
+            <div class="about-feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3 class="about-feature-title">Top 8 In-Demand Domains</h3>
+            <p class="about-feature-text">
+              Curated roles covering Web Development, Data Science, Artificial Intelligence, Machine Learning, UI/UX, Cybersecurity, Cloud, and Digital Marketing.
+            </p>
+          </div>
+          <div class="about-feature-card">
+            <div class="about-feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3 class="about-feature-title">Transparent Stipends &amp; Scope</h3>
+            <p class="about-feature-text">
+              No guesswork. Every listing includes clear monthly stipends, defined durations, work arrangements (Remote/Hybrid/On-site), and required technical skills.
+            </p>
+          </div>
+          <div class="about-feature-card">
+            <div class="about-feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v8M8 12h8"></path>
+              </svg>
+            </div>
+            <h3 class="about-feature-title">Accessible &amp; Lightweight</h3>
+            <p class="about-feature-text">
+              Crafted with strict WCAG 2.2 AA standards, zero bloated JavaScript bundles, keyboard navigation, high contrast, and instant response times.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top-grid">
+          <div class="footer-brand-col">
+            <a href="#home" class="brand-link" aria-label="InternHub Homepage">
+              <div class="brand-icon-wrapper" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                  <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                </svg>
+              </div>
+              <div class="brand-text">
+                <div class="brand-name">Intern<span>Hub</span></div>
+              </div>
+            </a>
+            <p class="footer-desc">
+              InternHub is a responsive internship listing platform designed to connect emerging developers, designers, and tech talents with career-launching internship opportunities.
+            </p>
+          </div>
+
+          <div class="footer-nav-col">
+            <div class="footer-col-title">Browse Domains</div>
+            <ul class="footer-links-list">
+              <li><a href="#explore-internships" class="footer-link">Web Development</a></li>
+              <li><a href="#explore-internships" class="footer-link">Data Science &amp; AI</a></li>
+              <li><a href="#explore-internships" class="footer-link">UI/UX Design</a></li>
+              <li><a href="#explore-internships" class="footer-link">Cybersecurity</a></li>
+              <li><a href="#explore-internships" class="footer-link">Cloud Infrastructure</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-col">
+            <div class="footer-col-title">Project &amp; Source</div>
+            <ul class="footer-links-list">
+              <li>
+                <a
+                  href="https://github.com/asraansari/responsive-internship-board"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer-link"
+                >
+                  GitHub Repository &nearr;
+                </a>
+              </li>
+              <li><a href="#about" class="footer-link">Accessibility Statement</a></li>
+              <li><a href="#home" class="footer-link">Back to Top &uarr;</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 InternHub. All rights reserved. Created for educational portfolio demonstration.</p>
+          <p>Built with semantic HTML5, modern CSS3, and vanilla JavaScript (ES6+).</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 8. Native HTML5 Dialog: Internship Details Modal (Mandatory Requirement) -->
+    <dialog
+      id="internship-modal"
+      class="internship-modal"
+      aria-labelledby="modal-title"
+      aria-modal="true"
+    >
+      <div class="modal-layout">
+        <!-- Modal Header -->
+        <header class="modal-header">
+          <div class="modal-header-info">
+            <div id="modal-avatar" class="modal-company-avatar" aria-hidden="true">NI</div>
+            <div>
+              <h2 id="modal-title" class="modal-title">Frontend Web Development Intern</h2>
+              <div class="modal-subtitle">
+                <span id="modal-company">Nexus Interactive</span> &bull;
+                <span id="modal-domain" class="domain-badge">Web Development</span>
+              </div>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="btn-close-modal btn-close-modal-trigger"
+            aria-label="Close internship details modal"
+            title="Close (Esc)"
+          >
+            &times;
+          </button>
+        </header>
+
+        <!-- Modal Body Content -->
+        <div class="modal-body">
+          <!-- Quick Facts Grid -->
+          <div class="modal-facts-grid" aria-label="Key internship metrics">
+            <div class="fact-item">
+              <span class="fact-label">Stipend</span>
+              <span id="modal-stipend" class="fact-value">$1,500 / month</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Duration</span>
+              <span id="modal-duration" class="fact-value">3 Months</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Work Mode</span>
+              <span id="modal-workmode" class="fact-value">Remote</span>
+            </div>
+            <div class="fact-item">
+              <span class="fact-label">Location</span>
+              <span id="modal-location" class="fact-value">San Francisco, CA</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <section>
+            <h3 class="modal-section-title">About the Role</h3>
+            <p id="modal-description" class="modal-text"></p>
+          </section>
+
+          <!-- Responsibilities -->
+          <section>
+            <h3 class="modal-section-title">Key Responsibilities</h3>
+            <ul id="modal-responsibilities" class="modal-list"></ul>
+          </section>
+
+          <!-- Qualifications -->
+          <section>
+            <h3 class="modal-section-title">Qualifications &amp; Requirements</h3>
+            <ul id="modal-qualifications" class="modal-list"></ul>
+          </section>
+
+          <!-- Required Skills -->
+          <section>
+            <h3 class="modal-section-title">Required Skills</h3>
+            <ul id="modal-skills" class="skills-list" aria-label="Required skills tags"></ul>
+          </section>
+
+          <!-- Perks & Mentorship -->
+          <section>
+            <h3 class="modal-section-title">Perks &amp; Benefits</h3>
+            <ul id="modal-perks" class="modal-list"></ul>
+          </section>
+
+          <!-- Sample Listing Disclaimer -->
+          <div class="modal-demo-notice">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <p class="modal-demo-text">
+              <strong>Notice:</strong> This is a curated sample listing created for educational and portfolio demonstration. Real openings must be verified through official employer career portals.
+            </p>
+          </div>
+        </div>
+
+        <!-- Modal Footer Actions -->
+        <footer class="modal-footer">
+          <div>
+            <span class="card-posted-date" id="modal-posted">Posted 2 days ago</span>
+          </div>
+          <div class="modal-actions-right">
+            <button type="button" id="modal-save-btn" class="btn-modal-secondary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span>Save to Bookmarks</span>
+            </button>
+            <div id="modal-apply-container">
+              <!-- Dynamically populated: Apply Now Link OR Demo Listing Button -->
+            </div>
+            <button type="button" class="btn-modal-secondary btn-close-modal-trigger">Close</button>
+          </div>
+        </footer>
+      </div>
+    </dialog>
+
+    <!-- 9. Toast Notification Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- 10. Data and Application Scripts (Vanilla JS ES6+) -->
+    <script src="./js/data.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>
