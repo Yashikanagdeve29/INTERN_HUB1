@@ -8,8 +8,8 @@ InternHub is engineered with **pure semantic HTML5, modern CSS3, and vanilla Jav
 
 ## 1. Live Preview
 
-- **Live Demo (GitHub Pages Placeholder):** [https://tariksk786.github.io/InternHub/](https://tariksk786.github.io/InternHub/)
-- **Live Preview URL:** (https://tariksk786.github.io/InternHub/)
+- **Live Demo (GitHub Pages Placeholder):** [https://yashikanagdeve29.github.io/INTERN_HUB1/](https://yashikanagdeve29.github.io/INTERN_HUB1/)
+- **Live Preview URL:** (https://yashikanagdeve29.github.io/INTERN_HUB1/)
 
 ---
 
